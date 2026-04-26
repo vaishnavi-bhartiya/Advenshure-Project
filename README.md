@@ -8,8 +8,8 @@
 5. 12 blank rows in sales_pipeline.xlsx — should these be dropped or treated as placeholders?  
 
 ### Derived from Dataset
-- **Row Count**: 2,588 rows in sales_pipeline.xlsx after dropping blank rows.
-- **Duplicates**: 61 duplicate deal_ids detected (some exact, some with suffixes like `-R`).
-- **Dates**: Mixed formats — Excel serials, ISO strings, US/EU styles, and free‑text dates.
-- **Customer Names**: Inconsistent casing in `customer_name` (e.g., `Harvest Culinary LLC` vs `HARVEST CULINARY LLC`).
-- **Contacts**: Missing emails/phones in several customer records.  
+- 2,588 rows in sales_pipeline.xlsx after dropping blank rows.  
+- 61 duplicate deal_ids detected (some exact, some with suffixes like `-R`).  
+- Mixed date formats: Excel serials, ISO strings, US/EU styles, free‑text dates.  
+- Inconsistent casing in `customer_name` (e.g., `Harvest Culinary LLC` vs `HARVEST CULINARY LLC`).  
+- Missing emails/phones in several customer records.  
