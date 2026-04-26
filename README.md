@@ -149,6 +149,18 @@ The script works locally but fails on scalability, security, and deployment read
 - Modular design with environment‑based configuration
 
 ---
+## Task 3: Handoff Note
+
+End of Day Update:
+
+I’m signing off for the day and wanted to leave a clear async update for the next teammate picking this up. Today I completed the planned tasks, documented key decisions, and saved all outputs in the shared workspace. The work is stable and reproducible with dependencies listed in the requirements file. No blockers remain on the completed portions.
+
+Pending items include validation checks and integration testing, which are outlined but not yet executed. If you’re picking this up, I recommend starting with the validation step before moving into integration. All assumptions and context are logged in the README so you’ll have full visibility without needing a live walkthrough.
+
+I’ll be back online tomorrow to continue with the remaining tasks. Please leave comments or flag any issues so we can align asynchronously despite the time zone gap.
+
+
+
 
 
 
