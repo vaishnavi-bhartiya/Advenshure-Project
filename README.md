@@ -200,3 +200,11 @@ In production, I would monitor:
 - Duplicate rates in deals,
 - Failed inserts due to constraint violations,
 - API latency and schema drift alerts.
+
+---
+
+## How to Run
+- Install dependencies: `pip install -r requirements.txt`
+- Run Task 1 ETL pipeline: `python etl_pipeline.py`
+- Run Task 2 demo: `python user_loader.py` (uses `mock_api.py` for local testing)
+- The SQLite database (`sales_customers.db`) and validation exports are generated automatically.
