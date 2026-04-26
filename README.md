@@ -1,6 +1,6 @@
 # Advenshure ETL Project
 
-This repository contains my solution for the Advenshure Data Analyst assessment.It demonstrates data cleaning, normalization into 3NF, validation queries, and export of results.Deliverables include the ETL script, SQLite database, validation outputs, and documentation.
+This repository contains my solution for the Advenshure Data Analyst assessment. It demonstrates data cleaning, normalization into 3NF, validation queries, and export of results.Deliverables include the ETL script, SQLite database, validation outputs, and documentation.
 
 ---
 
