@@ -1,4 +1,4 @@
-# Advenshure ETL Project
+# ETL Project
 
 This repository contains my solution for the Data Analyst assessment.
 It demonstrates data cleaning, normalization into 3NF, validation queries, and export of results.
