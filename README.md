@@ -114,6 +114,7 @@ Executed in SQLite after loading cleaned data:
 ### Orphaned Customer Names
 Exported 48 distinct mismatched customer names (e.g., *Ghost Greenfield Trading Company Incorporated*, *Harvest Culinary*, *Chestnut Trading*).  
 These represent deals with no matching customer record in `customers.json`.
+**Note**: We identified 59 orphaned deal records — these are individual rows in the deals table that did not match any customer in customers.json. When duplicates are collapsed (i.e., the same customer name appearing across multiple deals), these 59 rows correspond to 48 unique customer names. In other words, 59 is the row‑level count of unmatched deals, while 48 is the distinct count of unmatched customers.
 
 ### Portability Note
 - Dates stored as ISO strings (`TEXT`) in SQLite for portability.  
