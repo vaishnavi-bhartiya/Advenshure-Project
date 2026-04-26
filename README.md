@@ -91,3 +91,51 @@ These represent deals with no matching customer record in `customers.json`.
 - **orphaned_deals_distinct.xlsx** — 48 unique mismatched customer names.
 - **validation_results.xlsx** — Validation metrics (orphaned deals, invalid probabilities, stage counts).
 - **README.md** — Documentation of clarifying questions, schema, cleaning decisions, validation, and portability notes.
+
+## Task 2: Code Review
+
+The provided junior contractor script runs locally but is not suitable for production at scale. Below are the key flaws and recommended fixes:
+
+1. **Database Choice & Scalability**
+   - **Issue:** The script writes to a local SQLite file (`users.db`). This is not appropriate for cloud deployment or high‑volume workloads (~500k rows/day).
+   - **Fix:** Use CloudSQL (Postgres) with connection pooling. Replace `sqlite3.connect()` with a Postgres driver (e.g., `psycopg2` or SQLAlchemy) and configure credentials securely via environment variables.
+
+2. **Row‑by‑Row Inserts**
+   - **Issue:** The script inserts each row individually inside a loop, committing after every insert. This is extremely slow and will not scale.
+   - **Fix:** Use bulk inserts (`executemany` or `COPY`) and commit once per batch. Pandas can write directly to Postgres via `df.to_sql()` with SQLAlchemy, or data can be staged in CSV and loaded efficiently.
+
+3. **SQL Injection & Data Integrity**
+   - **Issue:** The script uses f‑strings to build SQL queries (`f"INSERT INTO users..."`). This is unsafe and risks SQL injection if data contains special characters.
+   - **Fix:** Use parameterized queries (`cursor.execute("INSERT INTO users (id, name, email) VALUES (%s, %s, %s)", (row['id'], row['name'], row['email']))`). Also enforce schema constraints (unique email, non‑null IDs).
+
+4. **Error Handling & Logging**
+   - **Issue:** No error handling. If the API fails or a row violates constraints, the script will crash silently.
+   - **Fix:** Add try/except blocks, structured logging, and retries with exponential backoff for API calls. Use Python’s `logging` module instead of print statements.
+
+5. **Deployment Concerns**
+   - **Issue:** Script is written as a single function with hardcoded endpoint and credentials. Not modular, not container‑ready.
+   - **Fix:** Refactor into a pipeline:
+     - Configurable environment variables for API URL and DB connection.
+     - Separate functions for fetch, clean, and load.
+     - Package with `requirements.txt` or `pyproject.toml`.
+     - Containerize with Docker for Cloud Run deployment.
+
+### Summary
+The script works locally but fails on scalability, security, and deployment readiness. My re‑architecture would use:
+- CloudSQL (Postgres) with bulk inserts
+- Parameterized queries
+- Logging and error handling
+- Modular design with environment‑based configuration
+
+---
+
+### Optional Deliverable
+For demonstration, I’ve included a refactored script (`user_loader.py`) showing how I would re‑architect the junior contractor’s code for production.  
+- It uses Postgres with bulk inserts and parameterized queries.  
+- For local reproducibility, I mocked the API response (`mock_api.py`) and added a SQLite fallback so the script can run without requiring a live Postgres server.  
+- Dependencies are documented in `requirements.txt`.  
+
+This optional script is not required by the assessment but demonstrates my ability to move from critique to solution.
+
+
+
