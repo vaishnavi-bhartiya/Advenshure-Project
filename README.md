@@ -149,7 +149,7 @@ The provided junior contractor script runs locally but is not suitable for produ
      - Configurable environment variables for API URL and DB connection.
      - Separate functions for fetch, clean, and load.
      - Package with `requirements.txt` or `pyproject.toml`.
-     - Containerize with Docker for Cloud Run deployment.
+     - Containerize for Cloud Run deployment.
 
 ### Summary
 The script works locally but fails on scalability, security, and deployment readiness. My re‑architecture would use:
