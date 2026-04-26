@@ -163,11 +163,11 @@ The script works locally but fails on scalability, security, and deployment read
 
 End of Day Update:
 
-I’m signing off for the day and wanted to leave a clear async update for the next teammate picking this up. Today I completed the planned tasks, documented key decisions, and saved all outputs in the shared workspace. The work is stable and reproducible with dependencies listed in the requirements file. No blockers remain on the completed portions.
+I’m signing off for the day and wanted to leave a clear async update for next teammate picking this up. Today I completed my planned tasks, documented key decisions, and saved all outputs in shared workspace. The work is stable and reproducible with dependencies listed in requirements file. No blockers remain on completed portions.
 
-Pending items include validation checks and integration testing, which are outlined but not yet executed. If you’re picking this up, I recommend starting with the validation step before moving into integration. All assumptions and context are logged in the README so you’ll have full visibility without needing a live walkthrough.
+Pending items include validation checks and integration testing, which are outlined but not yet executed. If you’re picking this up, I recommend starting with the validation step before moving into integration. All assumptions and context are logged in README so you’ll have full visibility without needing a live walkthrough.
 
-I’ll be back online tomorrow to continue with the remaining tasks. Please leave comments or flag any issues so we can align asynchronously despite the time zone gap.
+I’ll be back online tomorrow to continue with remaining tasks. Please leave comments or flag any issues so we can align asynchronously despite the time zone gap.
 
 ---
 
@@ -185,7 +185,7 @@ Key prompts:
    → Produced a polished async handoff note in ~150 words.
 
 ### Human Intervention
-AI initially suggested hitting the fictional Advenshure API directly. I noticed the endpoint didn’t exist and requests failed with `NameResolutionError`. I corrected by mocking the API response (`mock_api.py`) and documenting this in the README. Similarly, AI first recommended Postgres connection code, but I caught that recruiters wouldn’t have a local server. I added a SQLite fallback for reproducibility.
+AI initially suggested hitting the fictional Advenshure API directly. I noticed the endpoint didn’t exist and requests failed with `NameResolutionError`. I corrected by mocking API response (`mock_api.py`) and documenting this in README. Similarly, AI first recommended Postgres connection code, but I caught that recruiters wouldn’t have a local server. I added a SQLite fallback for reproducibility.
 
 ### Failure Modes
 This solution may fail on unseen data if:
