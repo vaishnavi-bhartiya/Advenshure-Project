@@ -159,6 +159,34 @@ Pending items include validation checks and integration testing, which are outli
 
 I’ll be back online tomorrow to continue with the remaining tasks. Please leave comments or flag any issues so we can align asynchronously despite the time zone gap.
 
+## Task 4: Prompt Log & Failure Modes
+
+### Prompt Log
+I used Microsoft Copilot as my primary AI assistant throughout this assessment. My prompting strategy was iterative: start with broad clarifying questions, then refine into specific, recruiter‑ready outputs. I focused on structured prompts that asked for professional phrasing, schema design, or troubleshooting steps.
+
+Key prompts:
+1. *“This assignment is essentially a multi‑part technical and communication test. Break it down step by step so I know exactly what to do.”*  
+   → Helped me map the assessment into Tasks 0–4 with deliverables.
+2. *“Do recruiter wants me to attach code in Task2?”*  
+   → Clarified expectations and whether optional code should be included.
+3. *“Help me answering Task3 as per needed by recruiter.”*  
+   → Produced a polished async handoff note in ~150 words.
+
+### Human Intervention
+AI initially suggested hitting the fictional Advenshure API directly. I noticed the endpoint didn’t exist and requests failed with `NameResolutionError`. I corrected by mocking the API response (`mock_api.py`) and documenting this in the README. Similarly, AI first recommended Postgres connection code, but I caught that recruiters wouldn’t have a local server. I added a SQLite fallback for reproducibility.
+
+### Failure Modes
+This solution may fail on unseen data if:
+- Customer names differ beyond simple casing (e.g., abbreviations, fuzzy matches not handled).
+- Deal values include new non‑numeric formats not covered by current cleaning rules.
+- API schema changes introduce new fields not mapped in the ETL.
+
+In production, I would monitor:
+- Duplicate rates in deals,
+- Failed inserts due to constraint violations,
+- API latency and schema drift alerts.
+
+
 
 
 
