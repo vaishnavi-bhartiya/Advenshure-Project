@@ -205,6 +205,6 @@ In production, I would monitor:
 
 ## How to Run
 - Install dependencies: `pip install -r requirements.txt`
-- Run Task 1 ETL pipeline: `python etl_pipeline.py` (Note: In etl_pipeline.py, the source file path is currently set to my local system. If you are testing this script, please update the destination of the source file in the code to match your own environment before running.)
+- Run Task 1 ETL pipeline: `python etl_pipeline.py` (Note: Source file path is currently set to my local system. If you are testing this script, please update the destination of the source file in the code to match your own environment before running.)
 - Run Task 2 demo: `python user_loader.py` (uses `mock_api.py` for local testing)
 - The SQLite database (`sales_customers.db`) and validation exports are generated automatically.
